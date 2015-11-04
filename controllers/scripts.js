@@ -56,6 +56,9 @@ $(document).ready(function() {
             $(html).appendTo("tbody");
         }
         
+        //Get all elements from DOM where element has
+        //attribute 'type' with value 'button'. Then add
+        //event handler for click event for each of them
         $("[type=button]").click(function(click_data){
             
             //Loop trough all the values
@@ -73,53 +76,21 @@ $(document).ready(function() {
             }
         });
         
-    });
-    
-    //Get all elements from DOM where element has
-    //attribute 'type' with value 'button'. Then add
-    //event handler for click event for each of them
-    
+    });   
     
 });
 
-
+/**
+  *Creates a modify view for our application
+  */
 function buildModifyUI(person_data){
     
     var html = "<input type='text' value='" + person_data.name + "'/>";
+    html += "<input type='text' value='" + person_data.address + "'/>";
+    html += "<input type='text' value='" + person_data.age + "'/>";
+    html += "<input type='button' value='Update' id='update'/>";
+    html += "<input type='button' value='Delete' id='delete'/>";
     
     $("body").html(html);
+    
 }
-
-/*
-$(document).ready(domReady);
-
-function domReady(){
-}*/
-
-/*
-window.onload = function(event){
-    
-    console.log(event);
-    para1.innerHTML = "Changed from JS";
-    //para1.style.backgroundColor = "yellow";
-    
-    var tempP = document.createElement("p");
-    tempP.innerHTML = "New Element";
-    para1.appendChild(tempP);
-}*/
-
-/*
-window.onload = domReady;
-
-function domReady(event){
-    
-    return 2;
-}
-
-function someFunction(nimi){
-    
-    console.log(nimi);
-}*/
-
-//someFunction(21);
-//someFunction("Markus");
