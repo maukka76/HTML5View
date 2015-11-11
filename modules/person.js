@@ -9,6 +9,12 @@ router.get('/',function(req,res){
     db.getAllPersons(req,res);
 });
 
+router.get('/:nimi',function(req,res){
+    
+    console.log("Get with name router called");
+    db.findPersonsByName(req,res);
+});
+
 //Handle POST requets for /persons context
 router.post('/',function(req,res){
     
