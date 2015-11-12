@@ -91,6 +91,21 @@ exports.findPersonsByName = function(req,res){
     });
 }
 
+exports.registerFriend = function(req,res){
+    
+    var friend = new db.Friends(req.body);
+    friend.save(function(err){
+        
+        if(err){
+            
+            res.send({status:err.message});
+        }
+        else{
+            res.send({status:"Ok"});
+        }
+    });
+}
+
 
 
 
