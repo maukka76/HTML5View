@@ -42,7 +42,7 @@ $(document).ready(function() {
     var setting = {
         
         method:"GET",
-        url:"http://localhost:3000/persons",
+        url:"http://localhost:3000/friends/username=" + localStorage['username'],
         dataType:"json",
     }
     
@@ -50,7 +50,7 @@ $(document).ready(function() {
         
         console.log(data);
         //Get all keys (attribute names) from json object
-        console.log(Object.keys(data[0]));
+        //console.log(Object.keys(data[0]));
         
         //Check that there are elements in array
         if(data.length > 0){

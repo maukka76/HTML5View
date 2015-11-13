@@ -10,22 +10,25 @@ $(document).ready(function(){
   *pressed
   */
 function loginHandler(event){
-    
+    console.log("Login pressed");
     var requestData = {
         
         username:$("#username").val(),
         password:$("#password").val()
     }
     
+    localStorage['username'] = $("#username").val();
+    sessionStorage['user'] = $("#username").val();
+    
     //Send login request to server
     $.ajax({
         
         method:'POST',
-        url:'localhost:3000/friends/login',
+        url:'http://localhost:3000/friends/login',
         data:requestData,
         dataType:'json'
     
-    });
+    }).done(loginResponseHandler);
 }
 
 /**
@@ -61,6 +64,17 @@ function registerResponseHandler(data){
 }
 
 
+function loginResponseHandler(data){
+    
+    //If login status was ok
+    if(data.status === "Ok"){
+ //Ask browser to load persons.html from node server  
+        window.location.href='http://localhost:3000/persons.html';
+        
+    }else{
+        $("#status").text(data.status);
+    }
+}
 
 
 
